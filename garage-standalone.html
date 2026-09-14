@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>Garage</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Garage">
+<meta name="theme-color" content="#1C1E1D">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAAJf0lEQVR4nO3c21HrSBRAUTHFPwkAkZAB8ZIBCZHBfDDF63KNJWBkn71WBF3l7rPVMubi+vZmAaDnn70XAMA+BAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAoi73XsC5ery/2nsJwKu7h6e9l3B+Lq5vb/Zew9kw9OEsiMGRBOBr5j6cKSU4TAD+ytyHMZTgUwLwCaMfRpKBDwTgHaMfxpOBF/4M9JXpDwVO+gs3gGWxISDJVcANwPSHKGe/HgA7AMriE6D7Cij+wQNvNV8HRW8Apj/wVnMmFAPQ/KSBw4KTIReA4GcMHKk2H/w30O2aLw3hBNUG909pfQn8I7vE3IeT5YyvEgrAN3dGZ0/AAM77MSoB+M5uiGwFmMfBPyz3JfBahU0AUzm/hyVuANueAmwdGMMQ+NT8G4APHth2osf/cdH8AGxg+sM8zvWfhgdgQ8DtEphqw+mefQkYHoC1TH+YzRl/a3IA1qbbzoCCtSd98CVgcgAAOEAA/uPxHzqc92djA7Dq1mY3QM2qUz/1LdDYAABwmAB4/IcoZ39mAKbe14C9jJwqMwMAwJfqAXAHhLL4BKgHACBrYABGvqoDdjdvtgwMwPHitz9gac+By70XcFrmFR74oDzxP0jfAADKBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAovwS+B0/EQQ63AAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAoi73XsBpeby/2nsJwO+6e3jaewmnwg0AIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACDKL4Hf8RNBoMMNACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACDqcu8FnJbH+6u9lwD8rruHp72XcCrcAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAovwS+B0/EQQ63AAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAoi73XsBpeby/2nsJwO+6e3jaewmnwg0AIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACDKL4Hf8RNBoMMNACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgKh2Ax/urvZcA7Kw8BwYG4O7hae8lAAPNmy0DAwDAMeoBKN/+gPgEqAcAIGtmAOa9qgP2NXKqzAzAKvE7IGQ5+wIAEDU2AKvuax4EoGbVqR/5/mcZHIC1NAA6nPdnAgAQNTkAa29tHgqgYO1Jn/r+Z5kdgA00AGZzxt8aHoAN6bY/YKoNp3vw4/8yPgDbaADM41z/aX4AtgXcXoFJtp3o2Y//y7JcXN/e7L2G/8PmgT5+B8Bszv4B828A3+QqAOfL+T2scgNYvr0VCo8DMIbzfoxQAJYfehyI7Aw4R874Kq0ALD96JezsEjhxzvU2l3sv4Ix5vQictdyXwKm8A6vU5kMuAEvvMwaOEZwMxQAsyU8aOKA5E3JfAn/gPT7ENUf/s+gN4EX5swfiE6AegCW/AyDL2a+/AnrL6yCIMPqfuQG8siegwEl/4QbwCVcBGMno/0AA/koGYAyj/1MC8DUlgDNl7h8mACsoAZwFc/9IArCRGMBJMfQ3EACAKH8GChAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABR/wJ5jQrcW1HWhQAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAAJf0lEQVR4nO3c21HrSBRAUTHFPwkAkZAB8ZIBCZHBfDDF63KNJWBkn71WBF3l7rPVMubi+vZmAaDnn70XAMA+BAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAoi73XsC5ery/2nsJwKu7h6e9l3B+Lq5vb/Zew9kw9OEsiMGRBOBr5j6cKSU4TAD+ytyHMZTgUwLwCaMfRpKBDwTgHaMfxpOBF/4M9JXpDwVO+gs3gGWxISDJVcANwPSHKGe/HgA7AMriE6D7Cij+wQNvNV8HRW8Apj/wVnMmFAPQ/KSBw4KTIReA4GcMHKk2H/w30O2aLw3hBNUG909pfQn8I7vE3IeT5YyvEgrAN3dGZ0/AAM77MSoB+M5uiGwFmMfBPyz3JfBahU0AUzm/hyVuANueAmwdGMMQ+NT8G4APHth2osf/cdH8AGxg+sM8zvWfhgdgQ8DtEphqw+mefQkYHoC1TH+YzRl/a3IA1qbbzoCCtSd98CVgcgAAOEAA/uPxHzqc92djA7Dq1mY3QM2qUz/1LdDYAABwmAB4/IcoZ39mAKbe14C9jJwqMwMAwJfqAXAHhLL4BKgHACBrYABGvqoDdjdvtgwMwPHitz9gac+By70XcFrmFR74oDzxP0jfAADKBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAovwS+B0/EQQ63AAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAoi73XsBpeby/2nsJwO+6e3jaewmnwg0AIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACDKL4Hf8RNBoMMNACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACDqcu8FnJbH+6u9lwD8rruHp72XcCrcAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAovwS+B0/EQQ63AAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAoi73XsBpeby/2nsJwO+6e3jaewmnwg0AIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACDKL4Hf8RNBoMMNACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgKh2Ax/urvZcA7Kw8BwYG4O7hae8lAAPNmy0DAwDAMeoBKN/+gPgEqAcAIGtmAOa9qgP2NXKqzAzAKvE7IGQ5+wIAEDU2AKvuax4EoGbVqR/5/mcZHIC1NAA6nPdnAgAQNTkAa29tHgqgYO1Jn/r+Z5kdgA00AGZzxt8aHoAN6bY/YKoNp3vw4/8yPgDbaADM41z/aX4AtgXcXoFJtp3o2Y//y7JcXN/e7L2G/8PmgT5+B8Bszv4B828A3+QqAOfL+T2scgNYvr0VCo8DMIbzfoxQAJYfehyI7Aw4R874Kq0ALD96JezsEjhxzvU2l3sv4Ix5vQictdyXwKm8A6vU5kMuAEvvMwaOEZwMxQAsyU8aOKA5E3JfAn/gPT7ENUf/s+gN4EX5swfiE6AegCW/AyDL2a+/AnrL6yCIMPqfuQG8siegwEl/4QbwCVcBGMno/0AA/koGYAyj/1MC8DUlgDNl7h8mACsoAZwFc/9IArCRGMBJMfQ3EACAKH8GChAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABR/wJ5jQrcW1HWhQAAAABJRU5ErkJggg==">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+  :root{
+    --bg:#1C1E1D; --panel:#242625; --panelAlt:#2B2D2C; --line:#3A3C3A; --lineSoft:#31332F;
+    --text:#EDEAE2; --textDim:#A5A79E; --textFaint:#787A73;
+    --accent:#E0692C; --accentDim:#7A4326;
+    --blue:#5C93A8; --blueDim:#33505A;
+    --green:#7DAE6E; --greenDim:#3E5236;
+    --amber:#E3B23C; --amberDim:#5C4B1F;
+    --red:#D2564D; --redDim:#5C2A26;
+    --font-display:'Oswald','Arial Narrow',sans-serif;
+    --font-body:'IBM Plex Sans',system-ui,sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased; min-height:100vh;}
+  body{padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);}
+  button, input, select{font-family:inherit;}
+  button{cursor:pointer;}
+  a{color:var(--accent);}
+  #app{max-width:900px;margin:0 auto;}
+  .root{display:grid;grid-template-columns:260px 1fr;min-height:100vh;background:var(--bg);}
+  .sidebar{border-right:1px solid var(--line);display:flex;flex-direction:column;overflow-y:auto;}
+  .detail{overflow-y:auto;}
+  .topbar{padding:16px 14px 10px;display:flex;align-items:center;justify-content:space-between;}
+  .brand{font-family:var(--font-display);font-size:20px;letter-spacing:0.04em;text-transform:uppercase;}
+  .count{padding:0 14px 10px;font-size:12px;color:var(--textFaint);}
+  .cat-heading{padding:8px 14px 4px;font-size:11px;letter-spacing:0.06em;color:var(--textFaint);
+    font-family:var(--font-display);text-transform:uppercase;}
+  .vrow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:9px 14px;
+    background:transparent;border:none;border-left:2px solid transparent;cursor:pointer;color:var(--text);}
+  .vrow.active{background:var(--panelAlt);border-left-color:var(--accent);}
+  .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+  .vrow-name{font-size:13px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .vrow-plate{font-size:11px;color:var(--textFaint);font-family:var(--font-mono);margin-top:1px;}
+  .empty-note{padding:20px;color:var(--textFaint);font-size:13px;line-height:1.6;}
+  .placeholder{padding:40px;color:var(--textFaint);font-size:13px;text-align:center;}
+  .iconbtn{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:3px;
+    border:1px solid var(--line);background:transparent;color:var(--textDim);font-size:15px;flex-shrink:0;}
+  .iconbtn.danger{color:var(--red);}
+  .iconbtn.small{width:26px;height:26px;font-size:13px;}
+  .btn-primary{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#241207;
+    border:none;border-radius:3px;padding:8px 14px;font-size:13px;font-weight:600;}
+  .btn-primary.small{padding:5px 10px;font-size:12px;}
+  .btn-ghost{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--textDim);
+    border:1px solid var(--line);border-radius:3px;padding:8px 14px;font-size:13px;}
+  .btn-ghost.small{padding:5px 10px;font-size:12px;}
+  .field{display:flex;flex-direction:column;gap:4px;}
+  .field label{font-size:12px;color:var(--textFaint);}
+  .field input, .field select{background:var(--panelAlt);border:1px solid var(--line);border-radius:3px;
+    color:var(--text);padding:7px 9px;font-size:13px;width:100%;outline:none;}
+  .field input.mono{font-family:var(--font-mono);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .section{padding:0;}
+  .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+  .section-head .left{display:flex;align-items:center;gap:8px;color:var(--textDim);}
+  .section-title{font-family:var(--font-display);font-size:15px;letter-spacing:0.03em;color:var(--text);
+    text-transform:uppercase;}
+  .muted{color:var(--textFaint);font-size:13px;}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:12px;
+    padding:3px 8px;border-radius:3px;white-space:nowrap;}
+  .plate{font-family:var(--font-mono);font-size:13px;font-weight:600;letter-spacing:0.04em;color:var(--text);
+    background:var(--panelAlt);border-radius:3px;padding:3px 8px;white-space:nowrap;flex-shrink:0;}
+  .detail-header{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid var(--line);}
+  .veh-name{font-family:var(--font-display);font-size:19px;color:var(--text);text-transform:uppercase;
+    letter-spacing:0.02em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .veh-sub{font-size:12px;color:var(--textFaint);}
+  .meterbar{display:flex;align-items:center;gap:10px;padding:12px 20px;border-bottom:1px solid var(--line);
+    background:var(--panelAlt);flex-wrap:wrap;}
+  .meterbar .val{font-family:var(--font-mono);font-size:14px;color:var(--text);}
+  .link-btn{background:none;border:none;color:var(--textFaint);font-size:12px;text-decoration:underline;padding:0;}
+  .body-pad{padding:20px;display:flex;flex-direction:column;gap:26px;}
+  .form-box{display:flex;flex-direction:column;gap:8px;background:var(--panelAlt);border:1px solid var(--line);
+    border-radius:4px;padding:10px;margin-top:10px;}
+  .plan-item, .hist-item{display:flex;align-items:center;justify-content:space-between;padding:9px 10px;
+    background:var(--panelAlt);border:1px solid var(--lineSoft);border-radius:4px;}
+  .plan-item + .plan-item{margin-top:8px;}
+  .hist-item{flex-direction:column;align-items:stretch;gap:8px;padding:9px 0;background:transparent;
+    border:none;border-bottom:1px solid var(--lineSoft);border-radius:0;}
+  .hist-row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+  .hist-date{font-family:var(--font-mono);font-size:12px;color:var(--textFaint);min-width:72px;}
+  .hist-desc{font-size:13px;color:var(--text);}
+  .hist-meta{font-size:11px;color:var(--textFaint);margin-top:2px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+  .tag{padding:1px 6px;border-radius:2px;font-size:10px;text-transform:uppercase;letter-spacing:0.04em;}
+  .tag.wartung{background:var(--blueDim);color:var(--blue);}
+  .tag.reparatur{background:var(--redDim);color:var(--red);}
+  .filter-row{display:flex;gap:6px;margin-bottom:10px;}
+  .filter-btn{padding:4px 10px;border-radius:3px;border:1px solid var(--lineSoft);background:transparent;
+    color:var(--textFaint);font-size:11px;text-transform:capitalize;}
+  .filter-btn.active{border-color:var(--textDim);background:var(--panelAlt);color:var(--text);}
+  .spec-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:7px 0;
+    border-bottom:1px solid var(--lineSoft);}
+  .spec-label{font-size:13px;color:var(--textDim);flex-shrink:0;}
+  .spec-value{font-size:13px;color:var(--text);font-family:var(--font-mono);text-align:right;}
+  .photo-grid{display:flex;flex-wrap:wrap;gap:8px;}
+  .photo-thumb{position:relative;width:84px;height:84px;flex-shrink:0;}
+  .photo-thumb.small{width:64px;height:64px;}
+  .photo-thumb img{width:100%;height:100%;object-fit:cover;border-radius:4px;border:1px solid var(--line);
+    cursor:pointer;display:block;}
+  .photo-del{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;
+    background:var(--redDim);color:var(--red);border:1px solid var(--bg);display:flex;align-items:center;
+    justify-content:center;font-size:11px;line-height:1;}
+  .lightbox{position:fixed;inset:0;background:rgba(10,10,10,0.92);display:flex;align-items:center;
+    justify-content:center;z-index:1000;padding:24px;}
+  .lightbox img{max-width:92%;max-height:92%;border-radius:6px;box-shadow:0 8px 30px rgba(0,0,0,0.5);}
+  .lightbox-close{position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:50%;
+    background:var(--panel);color:var(--text);border:1px solid var(--line);display:flex;align-items:center;
+    justify-content:center;font-size:16px;}
+  .cat-pick-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .cat-pick{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 10px;border-radius:4px;
+    border:1px solid var(--line);background:var(--panelAlt);color:var(--textDim);font-size:13px;}
+  .cat-pick.active{border-color:var(--accent);background:var(--accentDim);color:var(--accent);}
+  .cat-emoji{font-size:20px;}
+  .error-box{margin:10px 14px;padding:8px 12px;background:var(--redDim);color:var(--red);font-size:12px;
+    border-radius:4px;}
+  .toolbar-row{display:flex;align-items:center;gap:8px;}
+  ::-webkit-scrollbar{width:8px;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px;}
+  @media (max-width:640px){
+    .root{grid-template-columns:1fr;}
+    .root.has-selection .sidebar{display:none;}
+    .root:not(.has-selection) .detail{display:none;}
+  }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+"use strict";
+
+/* ---------- config / helpers ---------- */
+const CATS = {
+  moto:{label:"Motorrad",plural:"Motorräder",accent:"var(--blue)",accentDim:"var(--blueDim)",defaultUnit:"km",inspectionLabel:"TÜV / HU",icon:"🏍️"},
+  auto:{label:"Auto",plural:"Autos",accent:"var(--accent)",accentDim:"var(--accentDim)",defaultUnit:"km",inspectionLabel:"TÜV / HU",icon:"🚗"},
+  flugzeug:{label:"Flugzeug",plural:"Flugzeuge",accent:"var(--green)",accentDim:"var(--greenDim)",defaultUnit:"h",inspectionLabel:"Nachprüfung",icon:"✈️"},
+  baumaschine:{label:"Baumaschine",plural:"Baumaschinen",accent:"var(--amber)",accentDim:"var(--amberDim)",defaultUnit:"h",inspectionLabel:"UVV-Prüfung",icon:"🚜"},
+};
+const CAT_ORDER = ["moto","auto","flugzeug","baumaschine"];
+
+function uid(){ return Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4); }
+function todayISO(){ return new Date().toISOString().slice(0,10); }
+function daysBetween(a,b){ return Math.round((new Date(b+"T00:00:00") - new Date(a+"T00:00:00"))/86400000); }
+function fmtDate(iso){ if(!iso) return "—"; const [y,m,d]=iso.split("-"); return `${d}.${m}.${y}`; }
+function esc(s){ return (s==null?"":String(s)).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"); }
+function fmtNum(n){ const num = Number(n); return isNaN(num) ? esc(n) : num.toLocaleString("de-DE"); }
+
+function catInfo(id){ return CATS[id] || CATS.auto; }
+function meterInfo(v){
+  const cat = catInfo(v.category);
+  const unit = v.meterUnit || cat.defaultUnit;
+  return { unit, label: unit==="h" ? "Betriebsstunden" : "Kilometerstand", soonThreshold: unit==="h"?10:500, inspectionLabel: cat.inspectionLabel };
+}
+
+function planItemStatus(item, currentMeter, unit, soonThreshold){
+  const today = todayISO();
+  let dueDays=null, dueMeter=null;
+  if(item.intervalMonths && item.lastDoneDate){
+    const next = new Date(item.lastDoneDate+"T00:00:00");
+    next.setMonth(next.getMonth()+Number(item.intervalMonths));
+    dueDays = daysBetween(today, next.toISOString().slice(0,10));
+  }
+  if(item.intervalMeter && item.lastDoneMeter!=="" && item.lastDoneMeter!=null && currentMeter!=="" && currentMeter!=null){
+    dueMeter = (Number(item.lastDoneMeter)+Number(item.intervalMeter)) - Number(currentMeter);
+  }
+  let level="ok", label="";
+  const parts=[];
+  if(dueDays!==null) parts.push(`${dueDays<0?"überfällig seit "+Math.abs(dueDays):"noch "+dueDays} Tag${Math.abs(dueDays)===1?"":"e"}`);
+  if(dueMeter!==null) parts.push(`${dueMeter<0?"überfällig seit "+Math.abs(dueMeter):"noch "+dueMeter} ${unit}`);
+  if(dueDays===null && dueMeter===null){ level="unknown"; label="kein Datum hinterlegt"; }
+  else {
+    const overdue = (dueDays!==null && dueDays<0) || (dueMeter!==null && dueMeter<0);
+    const soon = (dueDays!==null && dueDays<=30) || (dueMeter!==null && dueMeter<=soonThreshold);
+    level = overdue?"danger":soon?"warn":"ok";
+    label = parts.join(" / ");
+  }
+  return {level,label};
+}
+function tuvStatus(nextDate){
+  if(!nextDate) return {level:"unknown", label:"kein Termin hinterlegt"};
+  const d = daysBetween(todayISO(), nextDate);
+  const level = d<0?"danger":d<=60?"warn":"ok";
+  const label = d<0?`überfällig seit ${Math.abs(d)} Tagen`:`noch ${d} Tage`;
+  return {level,label};
+}
+function worstLevel(levels){
+  if(levels.includes("danger")) return "danger";
+  if(levels.includes("warn")) return "warn";
+  if(levels.includes("unknown")) return "unknown";
+  return "ok";
+}
+function vehicleStatus(v){
+  const m = meterInfo(v);
+  const t = tuvStatus(v.tuvNextDate).level;
+  const plans = (v.planItems||[]).map(p=>planItemStatus(p, v.currentMeter, m.unit, m.soonThreshold).level);
+  return worstLevel([t, ...plans]);
+}
+function dotColor(l){ return l==="danger"?"var(--red)":l==="warn"?"var(--amber)":l==="ok"?"var(--green)":"var(--textFaint)"; }
+function levelBg(l){ return l==="danger"?"var(--redDim)":l==="warn"?"var(--amberDim)":l==="ok"?"var(--greenDim)":"var(--lineSoft)"; }
+function levelFg(l){ return l==="danger"?"var(--red)":l==="warn"?"var(--amber)":l==="ok"?"var(--green)":"var(--textFaint)"; }
+function badge(level,label){
+  return `<span class="badge" style="background:${levelBg(level)};color:${levelFg(level)}">
+    <span class="dot" style="width:6px;height:6px;background:${dotColor(level)}"></span>${esc(label)}</span>`;
+}
+
+/* ---------- image compression ---------- */
+function compressImage(file, maxDim, quality){
+  maxDim = maxDim || 1000; quality = quality || 0.72;
+  return new Promise((resolve,reject)=>{
+    const reader = new FileReader();
+    reader.onerror = ()=>reject(reader.error);
+    reader.onload = ()=>{
+      const img = new Image();
+      img.onerror = reject;
+      img.onload = ()=>{
+        let {width,height} = img;
+        if(width>height && width>maxDim){ height=Math.round(height*maxDim/width); width=maxDim; }
+        else if(height>maxDim){ width=Math.round(width*maxDim/height); height=maxDim; }
+        const c = document.createElement("canvas"); c.width=width; c.height=height;
+        c.getContext("2d").drawImage(img,0,0,width,height);
+        resolve(c.toDataURL("image/jpeg",quality));
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+/* ---------- seed data ---------- */
+function t(label,value){ return {id:uid(),label,value}; }
+function pi(label,opts){
+  opts = opts||{};
+  return {id:uid(),label,intervalMeter:opts.km||opts.h||"",intervalMonths:opts.months||"",lastDoneDate:opts.lastDate||"",lastDoneMeter:opts.lastMeter||""};
+}
+
+function SEED(){ return [
+  {id:uid(),category:"moto",name:"Honda PC38",brand:"Honda",model:"CBF 600",year:"2004",plate:"UH L36",vin:"ZDCPC38F04F007189",currentMeter:"",meterUnit:"",tuvNextDate:"",photos:[],
+    techSpecs:[t("Fahrzeugart","Kraftrad"),t("Kraftstoff","Benzin"),t("Bereifung vorn","120/70 ZR17"),t("Bereifung hinten","160/60 ZR17"),t("Halter lt. Papieren","Michael Fritsche"),t("Modell (aus Typenschlüssel PC38 ermittelt)","Honda CBF 600")],
+    planItems:[pi("Motorölwechsel (inkl. Filter)",{km:6000,months:12}),pi("Ventilspiel prüfen",{km:24000}),pi("Kühlflüssigkeit wechseln",{months:24}),pi("Bremsflüssigkeit wechseln",{months:24})],
+    history:[]},
+  {id:uid(),category:"moto",name:"Honda SC57",brand:"Honda",model:"CBR 1000 RR Fireblade",year:"2008",plate:"UH RR7",vin:"JH2SC57A37M309807",currentMeter:"",meterUnit:"",tuvNextDate:"",photos:[],
+    techSpecs:[t("Kraftstoff","Benzin"),t("Status","Neu erworben – Ummeldung auf Michael Fritsche noch offen"),t("Halter lt. Papieren (Verkäufer)","Mario Winkler"),t("Modell (aus Typenschlüssel SC57 ermittelt)","Honda CBR 1000 RR Fireblade")],
+    planItems:[pi("Motorölwechsel (inkl. Filter)",{km:6000,months:12}),pi("Ventilspiel prüfen",{km:24000}),pi("Kühlflüssigkeit wechseln",{months:24}),pi("Bremsflüssigkeit wechseln",{months:24})],
+    history:[]},
+  {id:uid(),category:"moto",name:"KTM 300 EXC TPI",brand:"KTM",model:"300 EXC TPI",year:"2018",plate:"UH-CA29",vin:"VBKGSA206JM335140",currentMeter:"",meterUnit:"h",tuvNextDate:"",photos:[],
+    techSpecs:[t("Fahrzeugart","Enduro"),t("Kraftstoff","Benzin"),t("Emissionsklasse","Euro 4"),t("Halter lt. Papieren","Michael Fritsche"),t("Hinweis","Luftfilter vor jeder Fahrt prüfen/reinigen – ohne festes Intervall, daher nicht als Wartungspunkt geführt.")],
+    planItems:[pi("Getriebeölwechsel",{h:40}),pi("Kolben/Kolbenringe kontrollieren",{h:100}),pi("Kühlflüssigkeit wechseln",{months:24}),pi("Bremsflüssigkeit wechseln",{months:24})],
+    history:[]},
+  {id:uid(),category:"moto",name:"KTM Freeride 250 F",brand:"KTM",model:"Freeride 250 F",year:"2020",plate:"MHL-MF5",vin:"VBKFRA409JM195864",currentMeter:"",meterUnit:"h",tuvNextDate:"",photos:[],
+    techSpecs:[t("Fahrzeugart","Enduro"),t("Kraftstoff","Benzin"),t("Emissionsklasse","Euro 4"),t("Halter lt. Papieren","Michael Fritsche")],
+    planItems:[pi("Motorölwechsel",{h:15}),pi("Ventilspiel prüfen",{h:45}),pi("Kühlflüssigkeit wechseln",{months:24}),pi("Bremsflüssigkeit wechseln",{months:24})],
+    history:[]},
+  {id:uid(),category:"moto",name:"Gas Gas TXT 125 (Trial)",brand:"Gas Gas",model:"TXT 125",year:"2009",plate:"",vin:"VTRJG1203K1280341",currentMeter:"",meterUnit:"h",tuvNextDate:"",photos:[],
+    techSpecs:[t("Fahrzeugart","Trialmotorrad – kein Kennzeichen"),t("Kaufpreis","2.150 €"),t("Gekauft am","14.08.2015 von Armin Schmid"),t("Halter","Michael Fritsche")],
+    planItems:[pi("Getriebeöl kontrollieren",{h:30}),pi("Getriebeölwechsel",{h:60}),pi("Kupplungsflüssigkeit wechseln (hydraulisch)",{months:24}),pi("Kühlflüssigkeit wechseln",{months:24})],
+    history:[]},
+  {id:uid(),category:"moto",name:"Beta 290 Trial",brand:"Beta",model:"290 Trial",year:"2016",plate:"",vin:"",currentMeter:"",meterUnit:"h",tuvNextDate:"",photos:[],
+    techSpecs:[t("Fahrzeugart","Trialmotorrad"),t("Halter","Michael Fritsche"),t("Hinweis","Exakte Werksangaben nicht vorliegend – Intervalle analog zu vergleichbaren 2-Takt-Trialmotorrädern (z. B. Gas Gas TXT) angesetzt, bitte mit Betriebsanleitung abgleichen.")],
+    planItems:[pi("Getriebeöl kontrollieren",{h:30}),pi("Getriebeölwechsel",{h:60}),pi("Kühlflüssigkeit wechseln",{months:24})],
+    history:[]},
+  {id:uid(),category:"moto",name:"Honda SH300A",brand:"Honda",model:"SH300A",year:"",plate:"UH CT3",vin:"ZDCNF02B08F051031",currentMeter:"",meterUnit:"",tuvNextDate:"",photos:[],
+    techSpecs:[t("Fahrzeugart","Roller"),t("Kraftstoff","Benzin"),t("Eigentümer","Michael Fritsche"),t("Halterin lt. Papieren","Helga Fritsche (Mutter)")],
+    planItems:[pi("Motorölwechsel (inkl. Filter)",{km:6000,months:12}),pi("Variomatik-Riemen prüfen/wechseln",{km:25000}),pi("Ventilspiel prüfen",{km:24000}),pi("Bremsflüssigkeit wechseln",{months:24})],
+    history:[]},
+  {id:uid(),category:"moto",name:"KTM 990 SuperDuke",brand:"KTM",model:"990 SuperDuke",year:"2009",plate:"UH C648",vin:"VBKVD94038M954236",currentMeter:"",meterUnit:"",tuvNextDate:"",photos:[],
+    techSpecs:[t("Kraftstoff","Benzin"),t("Reifen vorn","120/70 ZR17"),t("Reifen hinten","180/55 ZR17"),t("Halter","Michael Fritsche"),t("Hinweis","KTM-Herstellerintervall für Öl liegt bei 15.000 km/12 Monaten; viele Halter wechseln bei Hobbybetrieb schon nach 6.000–8.000 km.")],
+    planItems:[pi("Motorölwechsel (inkl. Filter)",{km:15000,months:12}),pi("Ventilspiel prüfen",{km:30000}),pi("Kühlflüssigkeit wechseln",{months:24}),pi("Bremsflüssigkeit wechseln",{months:24})],
+    history:[]},
+  {id:uid(),category:"moto",name:"Suzuki VX800 (vermutlich)",brand:"Suzuki",model:"VX800",year:"1995",plate:"UH ZM5",vin:"JSTVX51L9R2100472",currentMeter:"",meterUnit:"",tuvNextDate:"",photos:[],
+    techSpecs:[t("Kraftstoff","Benzin"),t("Umbauten","Sonderlenker Fehling, Doppelscheibenbremse vorn (siehe Allonge im Fahrzeugschein)"),t("Modell","aus VIN-Präfix abgeleitet – bitte bei Gelegenheit prüfen")],
+    planItems:[pi("Motorölwechsel (inkl. Filter)",{km:6000,months:12}),pi("Ventilspiel prüfen",{km:12000}),pi("Bremsflüssigkeit wechseln",{months:24})],
+    history:[]},
+  {id:uid(),category:"auto",name:"VW Caravelle",brand:"Volkswagen",model:"Caravelle",year:"2015",plate:"UH WC62",vin:"WV2ZZZ7HZFH133214",currentMeter:"",meterUnit:"",tuvNextDate:"",photos:[],
+    techSpecs:[t("Farbe","Weiß"),t("Kraftstoff","Diesel"),t("Halter","Michael Fritsche"),t("Hinweis","30.000 km/24 Monate gilt für Longlife-Service; bei überwiegend Kurzstrecke ggf. 15.000 km/12 Monate wählen – im Serviceheft prüfen.")],
+    planItems:[pi("Ölwechsel / Inspektion",{km:30000,months:24}),pi("Bremsflüssigkeit wechseln",{months:24}),pi("Innenraum-/Pollenfilter wechseln",{km:15000,months:12})],
+    history:[]},
+  {id:uid(),category:"auto",name:"VW Golf",brand:"Volkswagen",model:"Golf",year:"2009",plate:"MHL LD1",vin:"FM6FM62S02TN7MGN1",currentMeter:"",meterUnit:"",tuvNextDate:"",photos:[],
+    techSpecs:[t("Farbe","Rot"),t("Kraftstoff","Benzin"),t("FIN","unsicher entziffert – bei Gelegenheit mit Fahrzeugschein abgleichen"),t("Eigentümer","Michael Fritsche"),t("Halterin lt. Papieren","Linda Schneider (Ehefrau)"),t("Hinweis","15.000 km/12 Monate gilt fürs feste Serviceintervall; bei Longlife-Öl ggf. 30.000 km/24 Monate – im Serviceheft prüfen.")],
+    planItems:[pi("Ölwechsel / Inspektion",{km:15000,months:12}),pi("Zündkerzen wechseln",{km:60000}),pi("Bremsflüssigkeit wechseln",{months:24})],
+    history:[]},
+  {id:uid(),category:"auto",name:"Mazda CX-5",brand:"Mazda",model:"CX-5",year:"",plate:"",vin:"",currentMeter:"",meterUnit:"",tuvNextDate:"",photos:[],
+    techSpecs:[t("Halter","Michael Fritsche"),t("Hinweis","Bei Diesel-/Turbo-Variante ggf. kürzeres Ölwechselintervall (10.000 km) – anhand Motorkennzeichnung/Serviceheft bestätigen.")],
+    planItems:[pi("Ölwechsel / Inspektion",{km:15000,months:12}),pi("Bremsflüssigkeit wechseln",{months:24}),pi("Luftfilter wechseln",{km:30000})],
+    history:[]},
+  {id:uid(),category:"flugzeug",name:"Cessna FR172J",brand:"Reims Aviation / Cessna",model:"FR172J",year:"",plate:"D-ECXM",vin:"",currentMeter:"",meterUnit:"",tuvNextDate:"",photos:[],
+    techSpecs:[t("Werknummer","0497 (auf Foto teils verdeckt – bitte prüfen)"),t("Luftfahrzeugrolle","Band XXXVII, Blatt 8143"),t("Datum Eintragungsschein","23.06.2021"),t("Eigentümer lt. Eintragungsschein","Michael Schenk, Auf dem Mittelfeld 6, 98693 Ilmenau"),t("Hinweis","Jahresnachprüfung (12 Monate, Pflicht) ist oben unter „Nachprüfung” geführt. Ölwechsel alle 50 Bstd. entspricht Continental-Herstellerangabe.")],
+    planItems:[pi("Motorölwechsel (inkl. Filter)",{h:50})],
+    history:[]},
+  {id:uid(),category:"baumaschine",name:"Terex SKS634",brand:"Terex",model:"SKS634",year:"",plate:"",vin:"",currentMeter:"9025.4",meterUnit:"",tuvNextDate:"",photos:[],
+    techSpecs:[t("Fahrgestell-Nr.","634/0374"),t("Standort","Mühlhausen, Am Danielsberg 11"),t("Servicepartner","BVG Baumaschinen GmbH, Dachwig"),t("Noch abzuarbeiten","Keilriemen erneuern; Front-Klappschaufel und beide Zylinder neu abdichten"),t("Hinweis","Genaue Werksintervalle für SKS634 nicht auffindbar – an vergleichbaren Terex/Schaeff-Radladermodellen orientiert, bitte mit Original-Betriebsanleitung abgleichen.")],
+    planItems:[pi("Motorölwechsel (inkl. Filter)",{h:250,lastDate:"2023-06-29",lastMeter:"9025.4"}),pi("Hydraulikölfilter wechseln",{h:500,lastDate:"2023-06-29",lastMeter:"9025.4"}),pi("Keilriemen prüfen/ersetzen",{h:250})],
+    history:[{id:uid(),date:"2023-06-29",km:"9025.4",type:"reparatur",
+      desc:"Fehlersuche nach Kundenbeanstandung: Keilriemen gespannt (Austausch nötig), Ölleckage behoben, zwei Hydraulikschläuche (Nebenpumpe→Steuergerät, Steuergerät→Vorderwagen) durch Pirtek erneuert.",
+      cost:"",photos:[]}]},
+]; }
+
+/* ---------- state ---------- */
+let vehicles = [];
+let errorMsg = null;
+const ui = {
+  selectedId:null, adding:false, addStep:1, addCategory:"moto",
+  editingHeader:false, meterEditing:false, tuvEditing:false,
+  planAdding:false, historyAdding:false, techAdding:false, docAdding:false,
+  historyFilter:"alle", lightbox:null,
+};
+
+function resetDetailUi(){
+  ui.editingHeader=false; ui.meterEditing=false; ui.tuvEditing=false;
+  ui.planAdding=false; ui.historyAdding=false; ui.techAdding=false; ui.docAdding=false;
+  ui.historyFilter="alle"; ui.lightbox=null;
+}
+
+function load(){
+  let raw = null;
+  try { raw = localStorage.getItem("garage-vehicles"); } catch(e){ raw = null; }
+  if(raw){
+    try { vehicles = JSON.parse(raw); } catch(e){ vehicles = SEED(); }
+  } else {
+    vehicles = SEED();
+    persistSilently();
+  }
+  render();
+}
+function persistSilently(){
+  try { localStorage.setItem("garage-vehicles", JSON.stringify(vehicles)); errorMsg=null; }
+  catch(e){ errorMsg = "Speichern fehlgeschlagen — der Speicher ist evtl. voll (v. a. durch Fotos). Alte Fotos ggf. löschen."; }
+}
+function persist(next){
+  vehicles = next;
+  persistSilently();
+  render();
+}
+function findVehicle(id){ return vehicles.find(v=>v.id===id); }
+function updateVehicle(id, patch){ persist(vehicles.map(v=>v.id===id?{...v,...patch}:v)); }
+function addVehicleObj(v){ persist([...vehicles, v]); }
+function deleteVehicleObj(id){ persist(vehicles.filter(v=>v.id!==id)); }
+
+function val(id){ const el = document.getElementById(id); return el ? el.value : ""; }
+
+/* ---------- render ---------- */
+function render(){
+  const app = document.getElementById("app");
+  const selected = ui.selectedId ? findVehicle(ui.selectedId) : null;
+  app.innerHTML = `
+    <div class="root ${selected?"has-selection":""}">
+      <div class="sidebar">${renderSidebar()}</div>
+      <div class="detail">${renderDetail(selected)}</div>
+    </div>
+    ${errorMsg?`<div class="error-box">${esc(errorMsg)}</div>`:""}
+    ${renderLightbox()}
+  `;
+}
+
+function renderSidebar(){
+  const grouped = {};
+  CAT_ORDER.forEach(c=>grouped[c]=[]);
+  vehicles.forEach(v=>{ (grouped[v.category]=grouped[v.category]||[]).push(v); });
+
+  let html = `
+    <div class="topbar">
+      <span class="brand">Garage</span>
+      <button class="iconbtn" data-action="add-vehicle-open" title="Fahrzeug hinzufügen">+</button>
+    </div>
+    <div class="count">${vehicles.length} Fahrzeug${vehicles.length===1?"":"e"}</div>
+    <div class="toolbar-row" style="padding:0 14px 12px;">
+      <button class="btn-ghost small" data-action="export-data" title="Alle Daten als Datei sichern">⬇ Sichern</button>
+      <label class="btn-ghost small" style="cursor:pointer;" title="Aus einer zuvor gesicherten Datei laden">⬆ Laden
+        <input type="file" accept="application/json" style="display:none;" data-onchange="import-data">
+      </label>
+    </div>
+  `;
+
+  if(ui.adding) html += renderAddVehicleForm();
+
+  if(vehicles.length===0 && !ui.adding){
+    html += `<div class="empty-note">Noch keine Fahrzeuge angelegt. Leg dein erstes Fahrzeug an, um mit Wartungsplan und Prüf-Erinnerungen zu starten.</div>`;
+  }
+
+  CAT_ORDER.forEach(id=>{
+    const list = grouped[id];
+    if(!list.length) return;
+    const info = catInfo(id);
+    html += `<div class="cat-heading">${esc(info.plural)} (${list.length})</div>`;
+    list.forEach(v=>{
+      const status = vehicleStatus(v);
+      const active = v.id===ui.selectedId;
+      html += `
+        <button class="vrow ${active?"active":""}" data-action="select-vehicle" data-id="${v.id}">
+          <span class="dot" style="background:${dotColor(status)}"></span>
+          <div style="min-width:0;flex:1;">
+            <div class="vrow-name">${esc(v.name || (v.brand+" "+v.model).trim() || "Ohne Namen")}</div>
+            <div class="vrow-plate">${esc(v.plate || "kein Kennzeichen")}</div>
+          </div>
+        </button>`;
+    });
+  });
+  return html;
+}
+
+function renderAddVehicleForm(){
+  if(ui.addStep===1){
+    let cats = CAT_ORDER.map(id=>{
+      const info = catInfo(id);
+      const active = ui.addCategory===id;
+      return `<button class="cat-pick ${active?"active":""}" data-action="pick-category" data-cat="${id}">
+        <span class="cat-emoji">${info.icon}</span>${esc(info.label)}
+      </button>`;
+    }).join("");
+    return `
+      <div style="padding:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px;">
+        <span class="muted">Kategorie wählen</span>
+        <div class="cat-pick-grid">${cats}</div>
+        <div class="toolbar-row" style="margin-top:4px;">
+          <button class="btn-primary" data-action="add-step2">Weiter</button>
+          <button class="btn-ghost" data-action="add-vehicle-cancel">Abbrechen</button>
+        </div>
+      </div>`;
+  }
+  const unitLabel = catInfo(ui.addCategory).defaultUnit==="h" ? "Betriebsstunden" : "Kilometerstand";
+  return `
+    <div style="padding:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+      ${vehicleFormFields({category:ui.addCategory, meterUnit:catInfo(ui.addCategory).defaultUnit, name:"",plate:"",brand:"",model:"",year:"",currentMeter:"",vin:""})}
+      <div class="toolbar-row" style="margin-top:10px;">
+        <button class="btn-primary" data-action="save-new-vehicle">Speichern</button>
+        <button class="btn-ghost" data-action="add-vehicle-cancel">Abbrechen</button>
+      </div>
+    </div>`;
+}
+
+function vehicleFormFields(v){
+  const m = { unit: v.meterUnit || catInfo(v.category).defaultUnit };
+  const meterLabel = m.unit==="h" ? "Betriebsstunden" : "Kilometerstand";
+  return `
+    <div class="grid2" style="margin-bottom:10px;">
+      <div class="field"><label>Kategorie</label>
+        <select id="f-category">
+          ${CAT_ORDER.map(id=>`<option value="${id}" ${v.category===id?"selected":""}>${esc(catInfo(id).label)}</option>`).join("")}
+        </select>
+      </div>
+      <div class="field"><label>Einheit für Laufleistung</label>
+        <select id="f-unit">
+          <option value="km" ${m.unit==="km"?"selected":""}>Kilometer</option>
+          <option value="h" ${m.unit==="h"?"selected":""}>Betriebsstunden</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Bezeichnung</label><input id="f-name" value="${esc(v.name)}" placeholder="z. B. Die Schwarze"></div>
+      <div class="field"><label>Kennzeichen</label><input id="f-plate" class="mono" value="${esc(v.plate)}" placeholder="MÜH-XX 123"></div>
+      <div class="field"><label>Marke</label><input id="f-brand" value="${esc(v.brand)}" placeholder="z. B. Honda"></div>
+      <div class="field"><label>Modell</label><input id="f-model" value="${esc(v.model)}" placeholder="z. B. CB 500 F"></div>
+      <div class="field"><label>Baujahr</label><input id="f-year" value="${esc(v.year)}" placeholder="2019"></div>
+      <div class="field"><label>${esc(meterLabel)}</label><input id="f-meter" type="number" value="${esc(v.currentMeter)}" placeholder="24000"></div>
+      <div class="field" style="grid-column:1/-1;"><label>FIN / Rahmen- / Werknummer</label><input id="f-vin" class="mono" value="${esc(v.vin)}" placeholder="WVW..."></div>
+    </div>`;
+}
+
+function renderDetail(v){
+  if(!v) return `<div class="placeholder">Wähle links ein Fahrzeug aus oder lege ein neues an.</div>`;
+  if(ui.editingHeader){
+    return `<div style="padding:20px;">
+      ${vehicleFormFields(v)}
+      <div class="toolbar-row" style="margin-top:10px;">
+        <button class="btn-primary" data-action="save-edit-header" data-id="${v.id}">Speichern</button>
+        <button class="btn-ghost" data-action="edit-header-cancel">Abbrechen</button>
+      </div>
+    </div>`;
+  }
+  const info = catInfo(v.category);
+  const m = meterInfo(v);
+  return `
+    <div class="detail-header">
+      <button class="iconbtn" data-action="back" title="Zurück">‹</button>
+      <span style="font-size:18px;">${info.icon}</span>
+      <span class="plate" style="border:1px solid ${info.accentDim};">${esc(v.plate || "— — —")}</span>
+      <div style="flex:1;min-width:0;">
+        <div class="veh-name">${esc(v.name || (v.brand+" "+v.model).trim() || "Ohne Namen")}</div>
+        <div class="veh-sub">${esc([v.brand,v.model,v.year].filter(Boolean).join(" · ") || "Keine Angaben")}</div>
+      </div>
+      <button class="iconbtn" data-action="edit-header-open" data-id="${v.id}" title="Bearbeiten">✎</button>
+      <button class="iconbtn danger" data-action="delete-vehicle" data-id="${v.id}" title="Löschen">🗑</button>
+    </div>
+    <div class="meterbar">
+      <span>⏱</span>
+      ${ui.meterEditing ? `
+        <input id="meter-draft" type="number" value="${esc(v.currentMeter)}" style="width:110px;background:var(--panel);border:1px solid var(--line);border-radius:3px;color:var(--text);padding:5px 8px;font-family:var(--font-mono);font-size:13px;">
+        <button class="btn-primary small" data-action="meter-save" data-id="${v.id}">OK</button>
+        <button class="btn-ghost small" data-action="meter-cancel">Abbrechen</button>
+      ` : `
+        <span class="val">${v.currentMeter ? fmtNum(v.currentMeter)+" "+m.unit : m.label+" unbekannt"}</span>
+        <button class="link-btn" data-action="meter-edit-open">aktualisieren</button>
+      `}
+    </div>
+    <div class="body-pad">
+      ${renderPhotosSection(v)}
+      ${renderTuvSection(v)}
+      ${renderPlanSection(v)}
+      ${renderHistorySection(v)}
+      ${renderDocsSection(v)}
+      ${renderTechSpecsSection(v)}
+    </div>
+  `;
+}
+
+function renderPhotosSection(v){
+  const photos = v.photos || [];
+  return `
+    <div class="section">
+      <div class="section-head">
+        <div class="left"><span>📷</span><span class="section-title">Fotos</span></div>
+        <label class="iconbtn" title="Foto hinzufügen">
+          ⬆<input type="file" accept="image/*" multiple style="display:none;" data-onchange="vehicle-photo-upload" data-id="${v.id}">
+        </label>
+      </div>
+      ${photos.length===0
+        ? `<p class="muted">Noch keine Fotos hinterlegt – z. B. Fahrzeugschein, Typenschild oder Gesamtansicht.</p>`
+        : renderPhotoGrid(photos, 84, `data-action="open-lightbox" data-scope="vehicle" data-vid="${v.id}"`, `data-action="remove-vehicle-photo" data-vid="${v.id}"`)}
+    </div>`;
+}
+
+function renderPhotoGrid(photos, size, openAttrsPrefix, removeAttrsPrefix){
+  return `<div class="photo-grid">${photos.map((src,i)=>`
+    <div class="photo-thumb ${size<84?"small":""}" style="width:${size}px;height:${size}px;">
+      <img src="${src}" ${openAttrsPrefix} data-idx="${i}" style="width:${size}px;height:${size}px;">
+      <button class="photo-del" ${removeAttrsPrefix} data-idx="${i}">✕</button>
+    </div>`).join("")}</div>`;
+}
+
+function renderLightbox(){
+  if(!ui.lightbox) return "";
+  const {scope, vid, hid, idx} = ui.lightbox;
+  const v = findVehicle(vid);
+  if(!v) return "";
+  let photos = [];
+  if(scope==="vehicle") photos = v.photos || [];
+  else if(scope==="history"){ const h = (v.history||[]).find(x=>x.id===hid); photos = h ? (h.photos||[]) : []; }
+  const src = photos[idx];
+  if(!src) return "";
+  return `<div class="lightbox" data-action="close-lightbox">
+    <img src="${src}" onclick="event.stopPropagation()">
+    <button class="lightbox-close" data-action="close-lightbox">✕</button>
+  </div>`;
+}
+
+function renderTuvSection(v){
+  const m = meterInfo(v);
+  const status = tuvStatus(v.tuvNextDate);
+  return `
+    <div class="section">
+      <div class="section-head"><div class="left"><span>✔</span><span class="section-title">${esc(m.inspectionLabel)}</span></div></div>
+      ${ui.tuvEditing ? `
+        <div class="toolbar-row" style="align-items:flex-end;">
+          <div class="field"><label>Nächster Termin (${esc(m.inspectionLabel)})</label><input id="tuv-date" type="date" value="${esc(v.tuvNextDate||"")}"></div>
+          <button class="btn-primary small" data-action="tuv-save" data-id="${v.id}">Speichern</button>
+          <button class="btn-ghost small" data-action="tuv-cancel">Abbrechen</button>
+        </div>
+      ` : `
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div>
+            <div style="font-family:var(--font-mono);font-size:15px;">${fmtDate(v.tuvNextDate)}</div>
+            <div style="margin-top:6px;">${badge(status.level, status.label)}</div>
+          </div>
+          <button class="iconbtn" data-action="tuv-edit-open" title="Termin ändern">✎</button>
+        </div>
+      `}
+    </div>`;
+}
+
+function renderPlanSection(v){
+  const m = meterInfo(v);
+  const items = v.planItems || [];
+  let itemsHtml = items.map(p=>{
+    const st = planItemStatus(p, v.currentMeter, m.unit, m.soonThreshold);
+    const intervalParts = [];
+    if(p.intervalMeter) intervalParts.push(`alle ${fmtNum(p.intervalMeter)} ${m.unit}`);
+    if(p.intervalMonths) intervalParts.push(`alle ${p.intervalMonths} Mon.`);
+    let sub = intervalParts.join(" · ");
+    if(p.lastDoneDate) sub += (sub?" · ":"") + "zuletzt " + fmtDate(p.lastDoneDate);
+    return `
+      <div class="plan-item">
+        <div>
+          <div style="font-size:13px;font-weight:500;">${esc(p.label)}</div>
+          <div style="font-size:11px;color:var(--textFaint);margin-top:2px;">${esc(sub)}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          ${badge(st.level, st.label)}
+          <button class="iconbtn small" data-action="plan-mark-done" data-id="${v.id}" data-pid="${p.id}" title="Als erledigt markieren (heute)">✔</button>
+          <button class="iconbtn small danger" data-action="plan-remove" data-id="${v.id}" data-pid="${p.id}" title="Löschen">🗑</button>
+        </div>
+      </div>`;
+  }).join("");
+
+  return `
+    <div class="section">
+      <div class="section-head">
+        <div class="left"><span>⏰</span><span class="section-title">Wartungsplan</span></div>
+        <button class="iconbtn" data-action="plan-add-open" data-id="${v.id}" title="Wartungspunkt hinzufügen">+</button>
+      </div>
+      ${items.length===0 && !ui.planAdding ? `<p class="muted">Noch kein Wartungsplan hinterlegt.</p>` : ""}
+      ${itemsHtml}
+      ${ui.planAdding ? `
+        <div class="form-box">
+          <div class="field"><label>Bezeichnung</label><input id="p-label" placeholder="z. B. Ölwechsel"></div>
+          <div class="grid2">
+            <div class="field"><label>Intervall (${m.unit})</label><input id="p-intervalMeter" type="number" placeholder="10000"></div>
+            <div class="field"><label>Intervall (Monate)</label><input id="p-intervalMonths" type="number" placeholder="12"></div>
+            <div class="field"><label>Zuletzt erledigt am</label><input id="p-lastDoneDate" type="date"></div>
+            <div class="field"><label>Zuletzt erledigt bei (${m.unit})</label><input id="p-lastDoneMeter" type="number" placeholder="20000"></div>
+          </div>
+          <div class="toolbar-row">
+            <button class="btn-primary small" data-action="plan-add-save" data-id="${v.id}">Hinzufügen</button>
+            <button class="btn-ghost small" data-action="plan-add-cancel">Abbrechen</button>
+          </div>
+        </div>` : ""}
+    </div>`;
+}
+
+function renderHistorySection(v){
+  const m = meterInfo(v);
+  const all = v.history || [];
+  const list = all.filter(h=>ui.historyFilter==="alle" || h.type===ui.historyFilter)
+                   .slice().sort((a,b)=> a.date<b.date ? 1 : -1);
+
+  const filters = ["alle","wartung","reparatur"].map(f=>
+    `<button class="filter-btn ${ui.historyFilter===f?"active":""}" data-action="history-filter" data-filter="${f}">${esc(f)}</button>`
+  ).join("");
+
+  const itemsHtml = list.map(h=>{
+    const photos = h.photos || [];
+    return `
+      <div class="hist-item">
+        <div class="hist-row">
+          <div style="display:flex;gap:10px;">
+            <div class="hist-date">${fmtDate(h.date)}</div>
+            <div>
+              <div class="hist-desc">${esc(h.desc)}</div>
+              <div class="hist-meta">
+                <span class="tag ${h.type}">${esc(h.type)}</span>
+                ${h.km ? `<span>${fmtNum(h.km)} ${m.unit}</span>` : ""}
+                ${h.cost ? `<span>💶 ${fmtNum(h.cost)} €</span>` : ""}
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:4px;flex-shrink:0;">
+            <label class="iconbtn small" title="Foto hinzufügen">
+              ⬆<input type="file" accept="image/*" multiple style="display:none;" data-onchange="history-photo-upload" data-vid="${v.id}" data-hid="${h.id}">
+            </label>
+            <button class="iconbtn small danger" data-action="history-remove" data-id="${v.id}" data-hid="${h.id}" title="Löschen">✕</button>
+          </div>
+        </div>
+        ${photos.length ? renderPhotoGrid(photos, 64, `data-action="open-lightbox" data-scope="history" data-vid="${v.id}" data-hid="${h.id}"`, `data-action="remove-history-photo" data-vid="${v.id}" data-hid="${h.id}"`) : ""}
+      </div>`;
+  }).join("");
+
+  return `
+    <div class="section">
+      <div class="section-head">
+        <div class="left"><span>🔧</span><span class="section-title">Verlauf</span></div>
+        <button class="iconbtn" data-action="history-add-open" title="Eintrag hinzufügen">+</button>
+      </div>
+      <div class="filter-row">${filters}</div>
+      ${list.length===0 && !ui.historyAdding ? `<p class="muted">Noch keine Einträge.</p>` : ""}
+      ${itemsHtml}
+      ${ui.historyAdding ? `
+        <div class="form-box">
+          <div class="field"><label>Art</label>
+            <select id="h-type"><option value="wartung">Wartung</option><option value="reparatur">Reparatur</option></select>
+          </div>
+          <div class="grid2">
+            <div class="field"><label>Datum</label><input id="h-date" type="date" value="${todayISO()}"></div>
+            <div class="field"><label>Stand (${m.unit})</label><input id="h-km" type="number" placeholder="24500"></div>
+          </div>
+          <div class="field"><label>Beschreibung</label><input id="h-desc" placeholder="z. B. Ölwechsel + Filter, Reifen hinten erneuert"></div>
+          <div class="field"><label>Kosten (€)</label><input id="h-cost" type="number" placeholder="120"></div>
+          <p class="muted" style="margin:0;">Fotos kannst du nach dem Eintragen direkt am Eintrag hinzufügen.</p>
+          <div class="toolbar-row">
+            <button class="btn-primary small" data-action="history-add-save" data-id="${v.id}">Eintragen</button>
+            <button class="btn-ghost small" data-action="history-add-cancel">Abbrechen</button>
+          </div>
+        </div>` : ""}
+    </div>`;
+}
+
+function docSearchLinks(v){
+  const q = encodeURIComponent(`${v.brand||""} ${v.model||""}`.trim());
+  return {
+    manual: `https://www.google.com/search?q=${q}+Bedienungsanleitung+Werkstatthandbuch+pdf`,
+    parts: `https://www.google.com/search?q=${q}+Ersatzteile+kaufen`,
+  };
+}
+
+function renderDocsSection(v){
+  const links = docSearchLinks(v);
+  const custom = v.docs || [];
+  const customHtml = custom.map(d=>`
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:4px 0;">
+      <a href="${esc(d.url)}" target="_blank" rel="noopener" style="font-size:13px;color:var(--text);">${esc(d.label)}</a>
+      <button data-action="doc-remove" data-id="${v.id}" data-did="${d.id}" style="background:none;border:none;color:var(--textFaint);cursor:pointer;flex-shrink:0;">✕</button>
+    </div>`).join("");
+  return `
+    <div class="section">
+      <div class="section-head">
+        <div class="left"><span>📄</span><span class="section-title">Dokumente &amp; Links</span></div>
+        <button class="iconbtn" data-action="doc-add-open" data-id="${v.id}" title="Eigenen Link hinzufügen">+</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <a class="btn-ghost small" style="text-decoration:none;" href="${links.manual}" target="_blank" rel="noopener">📘 Anleitung / Werkstatthandbuch suchen</a>
+        <a class="btn-ghost small" style="text-decoration:none;" href="${links.parts}" target="_blank" rel="noopener">🔧 Ersatzteile suchen</a>
+      </div>
+      ${custom.length ? `<div style="margin-top:10px;">${customHtml}</div>` : ""}
+      ${ui.docAdding ? `
+        <div class="form-box">
+          <div class="field"><label>Titel</label><input id="d-label" placeholder="z. B. Werkstatthandbuch (Hersteller-PDF)"></div>
+          <div class="field"><label>Link (URL)</label><input id="d-url" placeholder="https://..."></div>
+          <div class="toolbar-row">
+            <button class="btn-primary small" data-action="doc-add-save" data-id="${v.id}">Hinzufügen</button>
+            <button class="btn-ghost small" data-action="doc-add-cancel">Abbrechen</button>
+          </div>
+        </div>` : ""}
+    </div>`;
+}
+
+function renderTechSpecsSection(v){
+  const specs = v.techSpecs || [];
+  const rows = specs.map(s=>`
+    <div class="spec-row">
+      <span class="spec-label">${esc(s.label)}</span>
+      <div style="display:flex;align-items:flex-start;gap:10px;">
+        <span class="spec-value">${esc(s.value)}</span>
+        <button data-action="tech-remove" data-id="${v.id}" data-tid="${s.id}" style="background:none;border:none;color:var(--textFaint);cursor:pointer;margin-top:2px;">✕</button>
+      </div>
+    </div>`).join("");
+  return `
+    <div class="section">
+      <div class="section-head">
+        <div class="left"><span>⚙</span><span class="section-title">Technische Daten</span></div>
+        <button class="iconbtn" data-action="tech-add-open" data-id="${v.id}" title="Feld hinzufügen">+</button>
+      </div>
+      ${specs.length===0 && !ui.techAdding ? `<p class="muted">Noch keine technischen Daten hinterlegt.</p>` : ""}
+      ${rows}
+      ${ui.techAdding ? `
+        <div class="toolbar-row" style="margin-top:10px;align-items:flex-end;">
+          <div class="field" style="flex:1;"><label>Feld</label><input id="t-label" placeholder="z. B. Motor"></div>
+          <div class="field" style="flex:1;"><label>Wert</label><input id="t-value" placeholder="z. B. 471 ccm, 2-Zyl."></div>
+          <button class="btn-primary small" data-action="tech-add-save" data-id="${v.id}">OK</button>
+          <button class="btn-ghost small" data-action="tech-add-cancel">×</button>
+        </div>` : ""}
+    </div>`;
+}
+
+/* ---------- actions ---------- */
+function handleAction(action, el){
+  const id = el.dataset.id;
+  const v = id ? findVehicle(id) : null;
+
+  if(action==="select-vehicle"){ resetDetailUi(); ui.selectedId = id; render(); return; }
+  if(action==="back"){ resetDetailUi(); ui.selectedId = null; render(); return; }
+
+  if(action==="export-data"){
+    const stamp = todayISO();
+    const filename = `garage-export-${stamp}.json`;
+    const json = JSON.stringify(vehicles, null, 2);
+    const blob = new Blob([json], {type:"application/json"});
+    const isIOS = /iP(hone|od|ad)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    let file = null;
+    if(isIOS){ try { file = new File([blob], filename, {type:"application/json"}); } catch(e){ file = null; } }
+    if(isIOS && file && navigator.canShare && navigator.canShare({files:[file]})){
+      navigator.share({files:[file], title:"Garage-Sicherung"}).catch(()=>{ /* user cancelled — nothing to do */ });
+      return;
+    }
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click();
+    setTimeout(()=>{ document.body.removeChild(a); URL.revokeObjectURL(url); }, 500);
+    return;
+  }
+  if(action==="add-vehicle-open"){ ui.adding=true; ui.addStep=1; ui.addCategory="moto"; render(); return; }
+  if(action==="add-vehicle-cancel"){ ui.adding=false; render(); return; }
+  if(action==="pick-category"){ ui.addCategory = el.dataset.cat; render(); return; }
+  if(action==="add-step2"){ ui.addStep=2; render(); return; }
+  if(action==="save-new-vehicle"){
+    const nv = {
+      id:uid(), category:val("f-category"), meterUnit:val("f-unit"),
+      name:val("f-name"), plate:val("f-plate"), brand:val("f-brand"), model:val("f-model"),
+      year:val("f-year"), currentMeter:val("f-meter"), vin:val("f-vin"),
+      tuvNextDate:"", techSpecs:[], planItems:[], history:[], photos:[],
+    };
+    ui.adding=false; ui.selectedId=nv.id;
+    addVehicleObj(nv);
+    return;
+  }
+
+  if(action==="edit-header-open"){ ui.editingHeader=true; render(); return; }
+  if(action==="edit-header-cancel"){ ui.editingHeader=false; render(); return; }
+  if(action==="save-edit-header"){
+    const patch = {
+      category:val("f-category"), meterUnit:val("f-unit"),
+      name:val("f-name"), plate:val("f-plate"), brand:val("f-brand"), model:val("f-model"),
+      year:val("f-year"), currentMeter:val("f-meter"), vin:val("f-vin"),
+    };
+    ui.editingHeader=false;
+    updateVehicle(id, patch);
+    return;
+  }
+  if(action==="delete-vehicle"){
+    if(confirm(`${(v&&v.name)||"Fahrzeug"} wirklich löschen?`)){ ui.selectedId=null; deleteVehicleObj(id); }
+    return;
+  }
+
+  if(action==="meter-edit-open"){ ui.meterEditing=true; render(); return; }
+  if(action==="meter-cancel"){ ui.meterEditing=false; render(); return; }
+  if(action==="meter-save"){ ui.meterEditing=false; updateVehicle(id, {currentMeter: val("meter-draft")}); return; }
+
+  if(action==="tuv-edit-open"){ ui.tuvEditing=true; render(); return; }
+  if(action==="tuv-cancel"){ ui.tuvEditing=false; render(); return; }
+  if(action==="tuv-save"){ ui.tuvEditing=false; updateVehicle(id, {tuvNextDate: val("tuv-date")}); return; }
+
+  if(action==="plan-add-open"){ ui.planAdding=true; render(); return; }
+  if(action==="plan-add-cancel"){ ui.planAdding=false; render(); return; }
+  if(action==="plan-add-save"){
+    const label = val("p-label").trim();
+    if(!label) return;
+    const item = {id:uid(), label, intervalMeter:val("p-intervalMeter"), intervalMonths:val("p-intervalMonths"), lastDoneDate:val("p-lastDoneDate"), lastDoneMeter:val("p-lastDoneMeter")};
+    ui.planAdding=false;
+    updateVehicle(id, {planItems:[...(v.planItems||[]), item]});
+    return;
+  }
+  if(action==="plan-remove"){
+    const pid = el.dataset.pid;
+    updateVehicle(id, {planItems:(v.planItems||[]).filter(p=>p.id!==pid)});
+    return;
+  }
+  if(action==="plan-mark-done"){
+    const pid = el.dataset.pid;
+    updateVehicle(id, {planItems:(v.planItems||[]).map(p=>p.id===pid?{...p,lastDoneDate:todayISO(),lastDoneMeter:v.currentMeter||p.lastDoneMeter}:p)});
+    return;
+  }
+
+  if(action==="history-add-open"){ ui.historyAdding=true; render(); return; }
+  if(action==="history-add-cancel"){ ui.historyAdding=false; render(); return; }
+  if(action==="history-add-save"){
+    const desc = val("h-desc").trim();
+    if(!desc) return;
+    const entry = {id:uid(), date:val("h-date")||todayISO(), km:val("h-km"), type:val("h-type")||"wartung", desc, cost:val("h-cost"), photos:[]};
+    ui.historyAdding=false;
+    updateVehicle(id, {history:[entry, ...(v.history||[])]});
+    return;
+  }
+  if(action==="history-remove"){
+    const hid = el.dataset.hid;
+    updateVehicle(id, {history:(v.history||[]).filter(h=>h.id!==hid)});
+    return;
+  }
+  if(action==="history-filter"){ ui.historyFilter = el.dataset.filter; render(); return; }
+
+  if(action==="tech-add-open"){ ui.techAdding=true; render(); return; }
+  if(action==="tech-add-cancel"){ ui.techAdding=false; render(); return; }
+  if(action==="tech-add-save"){
+    const label = val("t-label").trim();
+    if(!label) return;
+    const spec = {id:uid(), label, value:val("t-value")};
+    ui.techAdding=false;
+    updateVehicle(id, {techSpecs:[...(v.techSpecs||[]), spec]});
+    return;
+  }
+  if(action==="tech-remove"){
+    const tid = el.dataset.tid;
+    updateVehicle(id, {techSpecs:(v.techSpecs||[]).filter(s=>s.id!==tid)});
+    return;
+  }
+
+  if(action==="doc-add-open"){ ui.docAdding=true; render(); return; }
+  if(action==="doc-add-cancel"){ ui.docAdding=false; render(); return; }
+  if(action==="doc-add-save"){
+    const label = val("d-label").trim();
+    const url = val("d-url").trim();
+    if(!label || !url) return;
+    const doc = {id:uid(), label, url};
+    ui.docAdding=false;
+    updateVehicle(id, {docs:[...(v.docs||[]), doc]});
+    return;
+  }
+  if(action==="doc-remove"){
+    const did = el.dataset.did;
+    updateVehicle(id, {docs:(v.docs||[]).filter(d=>d.id!==did)});
+    return;
+  }
+
+  if(action==="open-lightbox"){
+    ui.lightbox = { scope: el.dataset.scope, vid: el.dataset.vid, hid: el.dataset.hid||null, idx: Number(el.dataset.idx) };
+    render(); return;
+  }
+  if(action==="close-lightbox"){ ui.lightbox=null; render(); return; }
+
+  if(action==="remove-vehicle-photo"){
+    const vid = el.dataset.vid, idx = Number(el.dataset.idx);
+    const vv = findVehicle(vid);
+    updateVehicle(vid, {photos:(vv.photos||[]).filter((_,i)=>i!==idx)});
+    return;
+  }
+  if(action==="remove-history-photo"){
+    const vid = el.dataset.vid, hid = el.dataset.hid, idx = Number(el.dataset.idx);
+    const vv = findVehicle(vid);
+    updateVehicle(vid, {history:(vv.history||[]).map(h=>h.id===hid?{...h,photos:(h.photos||[]).filter((_,i)=>i!==idx)}:h)});
+    return;
+  }
+}
+
+async function handleFileChange(kind, el){
+  if(kind==="import-data"){
+    const file = el.files && el.files[0];
+    if(!file) return;
+    try {
+      const text = await file.text();
+      const parsed = JSON.parse(text);
+      if(!Array.isArray(parsed)) throw new Error("Keine gültige Sicherungsdatei.");
+      if(confirm(`${parsed.length} Fahrzeuge aus der Datei laden? Der aktuelle Datenstand auf diesem Gerät wird dabei überschrieben.`)){
+        resetDetailUi(); ui.selectedId=null; ui.adding=false;
+        persist(parsed);
+      }
+    } catch(e){
+      alert("Die Datei konnte nicht gelesen werden. Bitte eine mit „Sichern” erzeugte Datei verwenden.");
+    }
+    el.value = "";
+    return;
+  }
+
+  const files = el.files;
+  if(!files || !files.length) return;
+  let compressed;
+  try { compressed = await Promise.all(Array.from(files).map(f=>compressImage(f))); }
+  catch(e){ return; }
+
+  if(kind==="vehicle-photo-upload"){
+    const vid = el.dataset.id;
+    const vv = findVehicle(vid);
+    updateVehicle(vid, {photos:[...(vv.photos||[]), ...compressed]});
+  } else if(kind==="history-photo-upload"){
+    const vid = el.dataset.vid, hid = el.dataset.hid;
+    const vv = findVehicle(vid);
+    updateVehicle(vid, {history:(vv.history||[]).map(h=>h.id===hid?{...h,photos:[...(h.photos||[]),...compressed]}:h)});
+  }
+}
+
+document.addEventListener("click", (e)=>{
+  const el = e.target.closest("[data-action]");
+  if(!el) return;
+  handleAction(el.dataset.action, el);
+});
+document.addEventListener("change", (e)=>{
+  const el = e.target.closest("[data-onchange]");
+  if(!el) return;
+  handleFileChange(el.dataset.onchange, el);
+});
+
+load();
+</script>
+</body>
+</html>
